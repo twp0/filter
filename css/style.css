@@ -1,0 +1,74 @@
+body {
+	/* 设置透视呈现效果 */
+	perspective: 1000px;
+}
+
+.cube {
+	width: 200px;
+	height: 200px;
+	margin: 200px auto;
+	position: relative;
+	/* 设置transform-style:保留子元素3d效果 */
+	transform-style: preserve-3d;
+	transform: rotate3d(1, 1, 1, 0deg);
+	/* 此处正好是原坐标(i,j,k)，正好所有45度切角 */
+	transition: all 3s;
+}
+
+.cube:hover {
+	/* 
+				z轴指向自己
+				 以原点发射一条射线到指定空间某个点形成一个新的轴,
+				 然后以此轴旋转
+				 rotate3d(X,Y,Z,deg)
+				 */
+	transform: rotate3d(1, 1, 1, 720deg);
+}
+
+.side {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	/* 设置透明度 */
+	opacity: 0.8;
+}
+
+.front {
+	background-image: url(../img/刘德华.jpeg);
+	background-size: 100% auto;
+	transform: translateZ(100px);
+}
+
+.back {
+	background-image: url(../img/张学友.jpeg);
+	background-size: 100% auto;
+	transform: translateZ(-100px);
+}
+
+.right {
+	background-image: url(../img/郭富城.jpeg);
+	background-size:  100% auto;
+	transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+	background-image: url(../img/黎明.jpeg);
+	background-size: 100% auto;
+	transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+	background-image: url(../img/张国荣.jpg);
+	background-size: 100% auto;
+	transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+	background-image: url(../img/陈奕迅.jpeg);
+	background-size: 100% auto;
+	transform: rotateX(-90deg) translateZ(100px);
+}
+
+
